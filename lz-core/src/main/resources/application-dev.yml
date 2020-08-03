@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: springdemo
+  redis:
+    database: 10
+    password:
+    port: 6379
+    host: 127.0.0.1
+  datasource:
+    #    mysql:
+    url: jdbc:mysql://localhost:3306/lz?serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    oracle:
+#      url: jdbc:oracle:thin:cpp/cpphkb@10.147.17.226:1521:ORCL
+#      username: cpp
+#      password: cpphkb
+#      driver-class-name: oracle.jdbc.driver.OracleDriver
+
+server:
+  servlet:
+    context-path: /core
+
+
+logging:
+  level:
+    root: info
