@@ -31,7 +31,7 @@ class CoreApplicationTests {
         List<User> list = userService.list();
         System.out.println(list);
         MybatisDemoService mybatisDemoService =new MybatisDemoService();
-        mybatisDemoService.CRUD();
+//        mybatisDemoService.CRUD();
     }
 
 }

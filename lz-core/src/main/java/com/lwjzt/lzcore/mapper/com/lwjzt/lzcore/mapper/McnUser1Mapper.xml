@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwjzt.lzcore.mapper.McnUser1Mapper">
+  <resultMap id="BaseResultMap" type="com.lwjzt.lzcore.domain.McnUser1">
+    <!--@mbg.generated-->
+    <!--@Table mcn_user1-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="crtime" jdbcType="TIMESTAMP" property="crtime" />
+    <result column="cruser" jdbcType="VARCHAR" property="cruser" />
+    <result column="opertime" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="operuser" jdbcType="VARCHAR" property="operuser" />
+    <result column="account_desc" jdbcType="VARCHAR" property="accountDesc" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="alipay_code" jdbcType="VARCHAR" property="alipayCode" />
+    <result column="audit_status" jdbcType="INTEGER" property="auditStatus" />
+    <result column="bank_card_number" jdbcType="VARCHAR" property="bankCardNumber" />
+    <result column="bank_name" jdbcType="VARCHAR" property="bankName" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="content_component_secret" jdbcType="VARCHAR" property="contentComponentSecret" />
+    <result column="content_component_user_id" jdbcType="VARCHAR" property="contentComponentUserId" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="id_number_pic" jdbcType="VARCHAR" property="idNumberPic" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="is_administrator" jdbcType="INTEGER" property="isAdministrator" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    <result column="istenant_admin" jdbcType="SMALLINT" property="istenantAdmin" />
+    <result column="last_modify" jdbcType="TIMESTAMP" property="lastModify" />
+    <result column="login_err_count" jdbcType="INTEGER" property="loginErrCount" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="logout_time" jdbcType="TIMESTAMP" property="logoutTime" />
+    <result column="media_type" jdbcType="INTEGER" property="mediaType" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="org_name" jdbcType="VARCHAR" property="orgName" />
+    <result column="postal_code" jdbcType="VARCHAR" property="postalCode" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="schemaname" jdbcType="VARCHAR" property="schemaname" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="truename" jdbcType="VARCHAR" property="truename" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="weak_passwd" jdbcType="INTEGER" property="weakPasswd" />
+    <result column="pen_name" jdbcType="VARCHAR" property="penName" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, account_name, `password`, crtime, cruser, opertime, operuser, account_desc, address, 
+    alipay_code, audit_status, bank_card_number, bank_name, city, content_component_secret, 
+    content_component_user_id, email, id_number, id_number_pic, ip, is_administrator, 
+    is_deleted, istenant_admin, last_modify, login_err_count, login_time, logo, logout_time, 
+    media_type, mobile, nickname, org_code, org_name, postal_code, province, schemaname, 
+    sex, `status`, tenant_id, truename, unit, user_name, user_type, weak_passwd, pen_name, 
+    wechat
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update mcn_user1
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="account_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.accountName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.password,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="crtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.crtime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="cruser = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.cruser,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="opertime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.opertime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="operuser = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.operuser,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="account_desc = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.accountDesc,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="address = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.address,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="alipay_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.alipayCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="audit_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.auditStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="bank_card_number = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.bankCardNumber,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="bank_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.bankName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="city = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.city,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="content_component_secret = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.contentComponentSecret,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="content_component_user_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.contentComponentUserId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="email = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.email,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="id_number = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.idNumber,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="id_number_pic = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.idNumberPic,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ip = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.ip,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="is_administrator = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.isAdministrator,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="is_deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.isDeleted,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="istenant_admin = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.istenantAdmin,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="last_modify = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.lastModify,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="login_err_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.loginErrCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="login_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.loginTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="logo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.logo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="logout_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.logoutTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="media_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.mediaType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="mobile = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.mobile,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="nickname = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.nickname,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="org_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.orgCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="org_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.orgName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="postal_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.postalCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="province = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.province,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="schemaname = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.schemaname,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sex = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.sex,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.status,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="tenant_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.tenantId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="truename = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.truename,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="unit = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.unit,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="user_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.userName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="user_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.userType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="weak_passwd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.weakPasswd,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="pen_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.penName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="wechat = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.wechat,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mcn_user1
+    (account_name, `password`, crtime, cruser, opertime, operuser, account_desc, address, 
+      alipay_code, audit_status, bank_card_number, bank_name, city, content_component_secret, 
+      content_component_user_id, email, id_number, id_number_pic, ip, is_administrator, 
+      is_deleted, istenant_admin, last_modify, login_err_count, login_time, logo, logout_time, 
+      media_type, mobile, nickname, org_code, org_name, postal_code, province, schemaname, 
+      sex, `status`, tenant_id, truename, unit, user_name, user_type, weak_passwd, pen_name, 
+      wechat)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.accountName,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR}, #{item.crtime,jdbcType=TIMESTAMP}, 
+        #{item.cruser,jdbcType=VARCHAR}, #{item.opertime,jdbcType=TIMESTAMP}, #{item.operuser,jdbcType=VARCHAR}, 
+        #{item.accountDesc,jdbcType=VARCHAR}, #{item.address,jdbcType=VARCHAR}, #{item.alipayCode,jdbcType=VARCHAR}, 
+        #{item.auditStatus,jdbcType=INTEGER}, #{item.bankCardNumber,jdbcType=VARCHAR}, 
+        #{item.bankName,jdbcType=VARCHAR}, #{item.city,jdbcType=VARCHAR}, #{item.contentComponentSecret,jdbcType=VARCHAR}, 
+        #{item.contentComponentUserId,jdbcType=VARCHAR}, #{item.email,jdbcType=VARCHAR}, 
+        #{item.idNumber,jdbcType=VARCHAR}, #{item.idNumberPic,jdbcType=VARCHAR}, #{item.ip,jdbcType=VARCHAR}, 
+        #{item.isAdministrator,jdbcType=INTEGER}, #{item.isDeleted,jdbcType=INTEGER}, #{item.istenantAdmin,jdbcType=SMALLINT}, 
+        #{item.lastModify,jdbcType=TIMESTAMP}, #{item.loginErrCount,jdbcType=INTEGER}, 
+        #{item.loginTime,jdbcType=TIMESTAMP}, #{item.logo,jdbcType=VARCHAR}, #{item.logoutTime,jdbcType=TIMESTAMP}, 
+        #{item.mediaType,jdbcType=INTEGER}, #{item.mobile,jdbcType=VARCHAR}, #{item.nickname,jdbcType=VARCHAR}, 
+        #{item.orgCode,jdbcType=VARCHAR}, #{item.orgName,jdbcType=VARCHAR}, #{item.postalCode,jdbcType=VARCHAR}, 
+        #{item.province,jdbcType=VARCHAR}, #{item.schemaname,jdbcType=VARCHAR}, #{item.sex,jdbcType=INTEGER}, 
+        #{item.status,jdbcType=INTEGER}, #{item.tenantId,jdbcType=BIGINT}, #{item.truename,jdbcType=VARCHAR}, 
+        #{item.unit,jdbcType=VARCHAR}, #{item.userName,jdbcType=VARCHAR}, #{item.userType,jdbcType=INTEGER}, 
+        #{item.weakPasswd,jdbcType=INTEGER}, #{item.penName,jdbcType=VARCHAR}, #{item.wechat,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.lwjzt.lzcore.domain.McnUser1" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mcn_user1
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      account_name,
+      `password`,
+      crtime,
+      cruser,
+      opertime,
+      operuser,
+      account_desc,
+      address,
+      alipay_code,
+      audit_status,
+      bank_card_number,
+      bank_name,
+      city,
+      content_component_secret,
+      content_component_user_id,
+      email,
+      id_number,
+      id_number_pic,
+      ip,
+      is_administrator,
+      is_deleted,
+      istenant_admin,
+      last_modify,
+      login_err_count,
+      login_time,
+      logo,
+      logout_time,
+      media_type,
+      mobile,
+      nickname,
+      org_code,
+      org_name,
+      postal_code,
+      province,
+      schemaname,
+      sex,
+      `status`,
+      tenant_id,
+      truename,
+      unit,
+      user_name,
+      user_type,
+      weak_passwd,
+      pen_name,
+      wechat,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      #{accountName,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR},
+      #{crtime,jdbcType=TIMESTAMP},
+      #{cruser,jdbcType=VARCHAR},
+      #{opertime,jdbcType=TIMESTAMP},
+      #{operuser,jdbcType=VARCHAR},
+      #{accountDesc,jdbcType=VARCHAR},
+      #{address,jdbcType=VARCHAR},
+      #{alipayCode,jdbcType=VARCHAR},
+      #{auditStatus,jdbcType=INTEGER},
+      #{bankCardNumber,jdbcType=VARCHAR},
+      #{bankName,jdbcType=VARCHAR},
+      #{city,jdbcType=VARCHAR},
+      #{contentComponentSecret,jdbcType=VARCHAR},
+      #{contentComponentUserId,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR},
+      #{idNumber,jdbcType=VARCHAR},
+      #{idNumberPic,jdbcType=VARCHAR},
+      #{ip,jdbcType=VARCHAR},
+      #{isAdministrator,jdbcType=INTEGER},
+      #{isDeleted,jdbcType=INTEGER},
+      #{istenantAdmin,jdbcType=SMALLINT},
+      #{lastModify,jdbcType=TIMESTAMP},
+      #{loginErrCount,jdbcType=INTEGER},
+      #{loginTime,jdbcType=TIMESTAMP},
+      #{logo,jdbcType=VARCHAR},
+      #{logoutTime,jdbcType=TIMESTAMP},
+      #{mediaType,jdbcType=INTEGER},
+      #{mobile,jdbcType=VARCHAR},
+      #{nickname,jdbcType=VARCHAR},
+      #{orgCode,jdbcType=VARCHAR},
+      #{orgName,jdbcType=VARCHAR},
+      #{postalCode,jdbcType=VARCHAR},
+      #{province,jdbcType=VARCHAR},
+      #{schemaname,jdbcType=VARCHAR},
+      #{sex,jdbcType=INTEGER},
+      #{status,jdbcType=INTEGER},
+      #{tenantId,jdbcType=BIGINT},
+      #{truename,jdbcType=VARCHAR},
+      #{unit,jdbcType=VARCHAR},
+      #{userName,jdbcType=VARCHAR},
+      #{userType,jdbcType=INTEGER},
+      #{weakPasswd,jdbcType=INTEGER},
+      #{penName,jdbcType=VARCHAR},
+      #{wechat,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      account_name = #{accountName,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      crtime = #{crtime,jdbcType=TIMESTAMP},
+      cruser = #{cruser,jdbcType=VARCHAR},
+      opertime = #{opertime,jdbcType=TIMESTAMP},
+      operuser = #{operuser,jdbcType=VARCHAR},
+      account_desc = #{accountDesc,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      alipay_code = #{alipayCode,jdbcType=VARCHAR},
+      audit_status = #{auditStatus,jdbcType=INTEGER},
+      bank_card_number = #{bankCardNumber,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      content_component_secret = #{contentComponentSecret,jdbcType=VARCHAR},
+      content_component_user_id = #{contentComponentUserId,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      id_number_pic = #{idNumberPic,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      is_administrator = #{isAdministrator,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=INTEGER},
+      istenant_admin = #{istenantAdmin,jdbcType=SMALLINT},
+      last_modify = #{lastModify,jdbcType=TIMESTAMP},
+      login_err_count = #{loginErrCount,jdbcType=INTEGER},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      logo = #{logo,jdbcType=VARCHAR},
+      logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      media_type = #{mediaType,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      org_code = #{orgCode,jdbcType=VARCHAR},
+      org_name = #{orgName,jdbcType=VARCHAR},
+      postal_code = #{postalCode,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      schemaname = #{schemaname,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      tenant_id = #{tenantId,jdbcType=BIGINT},
+      truename = #{truename,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=INTEGER},
+      weak_passwd = #{weakPasswd,jdbcType=INTEGER},
+      pen_name = #{penName,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.lwjzt.lzcore.domain.McnUser1" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mcn_user1
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="accountName != null">
+        account_name,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="crtime != null">
+        crtime,
+      </if>
+      <if test="cruser != null">
+        cruser,
+      </if>
+      <if test="opertime != null">
+        opertime,
+      </if>
+      <if test="operuser != null">
+        operuser,
+      </if>
+      <if test="accountDesc != null">
+        account_desc,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="alipayCode != null">
+        alipay_code,
+      </if>
+      <if test="auditStatus != null">
+        audit_status,
+      </if>
+      <if test="bankCardNumber != null">
+        bank_card_number,
+      </if>
+      <if test="bankName != null">
+        bank_name,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="contentComponentSecret != null">
+        content_component_secret,
+      </if>
+      <if test="contentComponentUserId != null">
+        content_component_user_id,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="idNumberPic != null">
+        id_number_pic,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="isAdministrator != null">
+        is_administrator,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="istenantAdmin != null">
+        istenant_admin,
+      </if>
+      <if test="lastModify != null">
+        last_modify,
+      </if>
+      <if test="loginErrCount != null">
+        login_err_count,
+      </if>
+      <if test="loginTime != null">
+        login_time,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="logoutTime != null">
+        logout_time,
+      </if>
+      <if test="mediaType != null">
+        media_type,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="orgCode != null">
+        org_code,
+      </if>
+      <if test="orgName != null">
+        org_name,
+      </if>
+      <if test="postalCode != null">
+        postal_code,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="schemaname != null">
+        schemaname,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="truename != null">
+        truename,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="weakPasswd != null">
+        weak_passwd,
+      </if>
+      <if test="penName != null">
+        pen_name,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="crtime != null">
+        #{crtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cruser != null">
+        #{cruser,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operuser != null">
+        #{operuser,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDesc != null">
+        #{accountDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayCode != null">
+        #{alipayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="bankCardNumber != null">
+        #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="contentComponentSecret != null">
+        #{contentComponentSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="contentComponentUserId != null">
+        #{contentComponentUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumberPic != null">
+        #{idNumberPic,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="isAdministrator != null">
+        #{isAdministrator,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="istenantAdmin != null">
+        #{istenantAdmin,jdbcType=SMALLINT},
+      </if>
+      <if test="lastModify != null">
+        #{lastModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginErrCount != null">
+        #{loginErrCount,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null">
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="logoutTime != null">
+        #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mediaType != null">
+        #{mediaType,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null">
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null">
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="postalCode != null">
+        #{postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="schemaname != null">
+        #{schemaname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="truename != null">
+        #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="weakPasswd != null">
+        #{weakPasswd,jdbcType=INTEGER},
+      </if>
+      <if test="penName != null">
+        #{penName,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="accountName != null">
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="crtime != null">
+        crtime = #{crtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cruser != null">
+        cruser = #{cruser,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        opertime = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operuser != null">
+        operuser = #{operuser,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDesc != null">
+        account_desc = #{accountDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayCode != null">
+        alipay_code = #{alipayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        audit_status = #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="bankCardNumber != null">
+        bank_card_number = #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="contentComponentSecret != null">
+        content_component_secret = #{contentComponentSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="contentComponentUserId != null">
+        content_component_user_id = #{contentComponentUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumberPic != null">
+        id_number_pic = #{idNumberPic,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="isAdministrator != null">
+        is_administrator = #{isAdministrator,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="istenantAdmin != null">
+        istenant_admin = #{istenantAdmin,jdbcType=SMALLINT},
+      </if>
+      <if test="lastModify != null">
+        last_modify = #{lastModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginErrCount != null">
+        login_err_count = #{loginErrCount,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null">
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logo != null">
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="logoutTime != null">
+        logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mediaType != null">
+        media_type = #{mediaType,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null">
+        org_code = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null">
+        org_name = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="postalCode != null">
+        postal_code = #{postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="schemaname != null">
+        schemaname = #{schemaname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="truename != null">
+        truename = #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="weakPasswd != null">
+        weak_passwd = #{weakPasswd,jdbcType=INTEGER},
+      </if>
+      <if test="penName != null">
+        pen_name = #{penName,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

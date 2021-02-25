@@ -3,13 +3,40 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+
+#        ActiveMq
+#  activemq:
+#    broker-url: tcp://192.168.31.192:61616
+#    user: admin
+#    password: admin
+#    pool:
+#      enabled: false
+
+
+
+ #### RabbitMq  ###
+  rabbitmq:
+    host: 192.168.31.192
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+#    publisher-confirm-type: simple
+#    listener:
+#      simple:
+#        acknowledge-mode: auto
+  #    publisher-returns: true
+#    template:
+#      mandatory: true
+
+
   application:
     name: springdemo
   redis:
     database: 10
-    password:
+    password: leexiaobu
     port: 6379
-    host: 127.0.0.1
+    host: 192.168.31.192
   datasource:
     #    mysql:
     url: jdbc:mysql://localhost:3306/lz?serverTimezone=GMT%2B8
@@ -25,7 +52,7 @@ spring:
 server:
   servlet:
     context-path: /core
-
+  port: 8080
 
 logging:
   level:

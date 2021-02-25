@@ -13,6 +13,6 @@ public class TestController {
     MybatisDemoService mybatisDemoService;
     @GetMapping("/mybatis")
     public void testMybatis() {
-       mybatisDemoService.CRUD();
+//       mybatisDemoService.CRUD();
     }
 }

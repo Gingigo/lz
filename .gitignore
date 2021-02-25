@@ -1,9 +1,14 @@
 HELP.md
 target/
+!**.mvn/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+leetcodetemp/
+logs/
+*.iws
+mvnw
+mvnw.cmd
 ### STS ###
 .apt_generated
 .classpath
@@ -18,6 +23,9 @@ target/
 *.iws
 *.iml
 *.ipr
+/.mvn/
+.gitignore
+
 
 ### NetBeans ###
 /nbproject/private/
@@ -31,3 +39,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/designpattern/.mvn/

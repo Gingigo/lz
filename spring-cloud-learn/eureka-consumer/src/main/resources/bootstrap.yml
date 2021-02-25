@@ -1,0 +1,36 @@
+spring:
+  rabbitmq:
+    host: 192.168.31.192
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      default-binder: rabbit
+    config:
+#      这个指定的是git上配置文件的名称
+      name: config-consumer
+#      uri: http://localhost:60000
+      discovery:
+        enabled: true
+#        这个指定的是配置中心在Eureka上的名称
+        service-id: config-server
+      profile: prod
+      label: main
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.31.192:8761/eureka/
+
+myWords: ${words}
+name: ${name}
+
+
+
+
+
+
+
+
+

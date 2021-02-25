@@ -20,10 +20,10 @@ import java.util.prefs.AbstractPreferences;
 public class BeanDefinition {
     public static void main(String[] args) {
         //1.创建容器
-        AnnotationConfigApplicationContext acac = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext acac = new AnnotationConfigApplicationContext(BeanDefinition.class);
         //2.注册配置类
-        acac.register(BeanDefinition.class);
-        acac.refresh();
+//        acac.register();
+//        acac.refresh();
         User bean1 = (User)acac.getBean("user");
         User bean2 = (User)acac.getBean("user");
         System.out.println(bean1.hashCode());
@@ -42,8 +42,6 @@ public class BeanDefinition {
             User user = new User();
             user.setUserName("超级无敌李小布");
             System.out.println("构造方法");
-            ClassPathXmlApplicationContext;
-            UrlResource
             return user;
         }
 
