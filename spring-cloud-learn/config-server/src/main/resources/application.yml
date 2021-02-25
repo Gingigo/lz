@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Leexiaobu/config-repo.git
+          force-pull: true
+          # 强制拉取资源文件
+  rabbitmq:
+    port: 5672
+    username: guest
+    password: guest
+    host: 192.168.31.192
+#          search-paths:
+#          username:
+#          password:
+# 127.0.0.1:60000/main/config-consumer-dev.yml
+
+# 127.0.0.1:60000/config-consumer/dev/main
+server:
+  port: 60000
+
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.31.192:8761/eureka/
+
+# 不限长度的JCE组件组件下载（注意下载对应JDK版本的组件）
+# https://www.oracle.com/technetwork/java/javase/downloads/jce-all-download-5170447.html
+
+management:
+  security:
+#    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
