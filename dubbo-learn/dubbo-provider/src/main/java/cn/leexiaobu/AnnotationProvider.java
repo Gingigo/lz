@@ -1,8 +1,9 @@
 package cn.leexiaobu;
 
-import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
@@ -13,13 +14,11 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @EnableDubbo(scanBasePackages = "cn.leexiaobu.service.impl")
 @PropertySource("classpath:/spring/dubbo-provider.properties")
+@SpringBootApplication
 public class AnnotationProvider {
-
-  public static void main(String[] args) throws IOException {
-    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
-        AnnotationProvider.class);
-    context.start();
-    System.out.println("server is start ");
-    System.in.read();
+  public static void main(String[] args) throws InterruptedException {
+    System.out.println("dubbo provider=====");
+    SpringApplication.run(AnnotationProvider.class, args);
+    new CountDownLatch(1).await();
   }
 }

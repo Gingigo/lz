@@ -6,7 +6,6 @@ import cn.leexiaobu.service.GreetingService;
 import java.io.IOException;
 import org.apache.dubbo.common.json.JSON;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.apache.dubbo.rpc.RpcContext;
 
 /**
  * @author Leexiaobu
@@ -14,15 +13,30 @@ import org.apache.dubbo.rpc.RpcContext;
  */
 @DubboService
 public class GreetingServiceImpl implements GreetingService {
-
+//NettyHandler#messageReceived(ChannelHandlerContext, MessageEvent)
+//  —> AbstractPeer#received(Channel, Object)
+//    —> MultiMessageHandler#received(Channel, Object)
+//      —> HeartbeatHandler#received(Channel, Object)
+//        —> AllChannelHandler#received(Channel, Object)
+//          —> ExecutorService#execute(Runnable)    // 由线程池执行后续的调用逻辑
+// ChannelEventRunnable#run()
+//  —> DecodeHandler#received(Channel, Object)
+//    —> HeaderExchangeHandler#received(Channel, Object)
+//      —> HeaderExchangeHandler#handleRequest(ExchangeChannel, Request)
+//        —> DubboProtocol.requestHandler#reply(ExchangeChannel, Object)
+//          —> Filter#invoke(Invoker, Invocation)
+//            —> AbstractProxyInvoker#invoke(Invocation)
+//              —> Wrapper0#invokeMethod(Object, String, Class[], Object[])
+//                —> DemoServiceImpl#sayHello(String)
   @Override
   public String sayHello(String name) {
-    try{
-      Thread.sleep(1000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    return "hello "+name+" "+ RpcContext.getContext().getAttachment("company");
+//    try{
+//      Thread.sleep(1000);
+//    } catch (InterruptedException e) {
+//      e.printStackTrace();
+//    }
+//    return "hello "+name+" "+ RpcContext.getContext().getAttachment("company");
+    return "hello "+name;
   }
 
   @Override

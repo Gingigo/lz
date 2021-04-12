@@ -12,6 +12,9 @@ public class MyLock {
         @Override
         protected boolean tryAcquire(int acquires) {
             final Thread current = Thread.currentThread();
+            //state
+            // 0无线程持有锁，
+            // 1有线程持有锁
             int c = getState();
             if (c == 0) {
                 if (compareAndSetState(0, acquires)) {
@@ -77,6 +80,7 @@ public class MyLock {
                 myLock.lock();
                 System.out.println("t1 get ");
                 Thread.sleep(5000);
+                System.out.println("t1 return ");
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -90,6 +94,7 @@ public class MyLock {
                 myLock.lock();
                 System.out.println("t2 get ");
 //                Thread.sleep(5000);
+                System.out.println("t2 return ");
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -97,7 +102,6 @@ public class MyLock {
             }
         });
         t2.setName("T2");
-
         t1.start();
         t2.start();
         Thread.sleep(2000);

@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class AQSTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         reentrantLock.wait();

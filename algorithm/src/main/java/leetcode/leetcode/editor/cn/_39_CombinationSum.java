@@ -20,55 +20,28 @@ class _39_CombinationSum {
     }
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
+        List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(candidates);
-        dfs(candidates, target, ans, list, 0);
-//        dfs(candidates, 0, candidates.length, target, path, ans);
-        return ans;
+        backtrack(list,new ArrayList<>(),candidates, target,0);
+        return list;
     }
 
-    public void dfs(int[] candidates, int target, List<List<Integer>> ans, List<Integer> list, int index) {
-//        if (target < 0) {
-//            return;
-//        }
-        if (target == 0) {
-            ans.add(new ArrayList<>(list));
-            return;
-        }
-        for (int i = index; i < candidates.length; i++) {
-            if (target - candidates[i] < 0) {
-                break;
+    void backtrack(List<List<Integer>> ans,List <Integer> tempList,int [] nums,int target,int index){
+        if(target==0){
+            ans.add(new ArrayList<>(tempList));
+         }else {
+            for (int i = index; i < nums.length; i++) {
+                if (target - nums[i] < 0) {
+                    break;
+                }
+                //这里是当前值放进 tempList
+                tempList.add(nums[i]);
+                backtrack(ans,tempList,nums,target-nums[i],i);
+                //这里是当前值不放进tempList,这种情况在上一层就考虑到了
+                tempList.remove(tempList.size()-1);
             }
-            list.add(candidates[i]);
-            dfs(candidates, target - candidates[i], ans, list, i);
-            list.remove(list.size() - 1);
         }
     }
-
-
-    private void dfs(int[] candidates, int begin, int len, int target, Deque<Integer> path, List<List<Integer>> res) {
-        // target 为负数和 0 的时候不再产生新的孩子结点
-        if (target < 0) {
-            return;
-        }
-        if (target == 0) {
-            res.add(new ArrayList<>(path));
-            return;
-        }
-
-        // 重点理解这里从 begin 开始搜索的语意
-        for (int i = begin; i < len; i++) {
-            path.addLast(candidates[i]);
-
-            // 注意：由于每一个元素可以重复使用，下一轮搜索的起点依然是 i，这里非常容易弄错
-            dfs(candidates, i, len, target - candidates[i], path, res);
-
-            // 状态重置
-            path.removeLast();
-        }
-    }
-
 
 }
 //leetcode submit region end(Prohibit modification and deletion)

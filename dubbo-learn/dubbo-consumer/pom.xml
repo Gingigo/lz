@@ -5,7 +5,7 @@
   <parent>
     <artifactId>dubbo-learn</artifactId>
     <groupId>cn.lwjzt</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -14,8 +14,12 @@
     <dependency>
       <groupId>cn.lwjzt</groupId>
       <artifactId>dubbo-api</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.1</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
   </dependencies>
 

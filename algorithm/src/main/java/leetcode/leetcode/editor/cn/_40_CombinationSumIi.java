@@ -12,15 +12,14 @@ class _40_CombinationSumIi {
 
     }
 
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
         Arrays.sort(candidates);
-        dfs(candidates, target, 0, ans, list);
+        backtrack(candidates, target, 0, ans, new ArrayList<>());
         return ans;
     }
 
-    void dfs(int[] candidates, int target, int index, List<List<Integer>> ans, List<Integer> list) {
+    void backtrack(int[] candidates, int target, int index, List<List<Integer>> ans, List<Integer> list) {
         if (target == 0) {
             ans.add(new ArrayList<>(list));
             return;
@@ -34,7 +33,7 @@ class _40_CombinationSumIi {
                 continue;
             }
             list.add(candidates[i]);
-            dfs(candidates, target - candidates[i], i + 1, ans, list);
+            backtrack(candidates, target - candidates[i], i + 1, ans, list);
             list.remove(list.size() - 1);
         }
 
