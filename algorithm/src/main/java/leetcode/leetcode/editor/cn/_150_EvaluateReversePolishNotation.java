@@ -57,7 +57,7 @@ class _150_EvaluateReversePolishNotation {
             return Integer.parseInt(tokens[0]);
         }
         Stack<Integer> stack = new Stack<>();
-        Set<String> set = new HashSet<>();
+        HashSet<String> set = new HashSet<>();
         set.add("+");
         set.add("-");
         set.add("*");

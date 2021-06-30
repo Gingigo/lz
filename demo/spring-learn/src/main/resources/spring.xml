@@ -1,0 +1,4 @@
+<bean id="leeFactoryBeanNew" class="cn.leexiaobu.util.LeeFactoryBeanNew">
+  <property name="mapperInterface" value=" cn.leexiaobu.mapper.UserMapper" />
+<!--  <property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
+</bean>
