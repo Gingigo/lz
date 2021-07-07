@@ -8,7 +8,6 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import org.apache.logging.log4j.util.Strings;
 
 /**
  * @author oujia
@@ -158,7 +157,7 @@ public class Io {
     ) {
       String s = fileReader.readLine();
       while (s != null) {
-        if(Strings.isNotBlank(s)){
+        if(s!=null &&!"".equals(s)){
           while (s.length() > size ) {
             String temp = s.substring(0, size);
             s = s.substring(size);
